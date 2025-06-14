@@ -1,69 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    /* Define a color palette for consistency */
+    --primary-color: #3498db; /* A vibrant blue */
+    --secondary-color: #2ecc71; /* A green for accents */
+    --dark-bg: #2c3e50; /* Dark background for header/footer */
+    --light-bg: #f8f8f8; /* Light background for sections */
+    --text-color: #333; /* Dark text */
+    --light-text: #fff; /* Light text for dark backgrounds */
+    --border-color: #e0e0e0; /* Light border/divider color */
+    --shadow-light: 0 4px 10px rgba(0,0,0,0.08); /* Subtle shadow */
+    --shadow-medium: 0 8px 20px rgba(0,0,0,0.15); /* More prominent shadow */
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Body text font */
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
-    color: #333;
+    background: var(--light-bg);
+    color: var(--text-color);
+    scroll-behavior: smooth;
 }
 
+/* Container for consistent content width */
+.container {
+    max-width: 1100px; /* Wider content area like Wix template */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif; /* Headings font */
+    color: var(--dark-bg);
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3.5em; } /* Larger for Hero */
+h2 {
+    font-size: 2.5em;
+    text-align: center; /* Center section titles */
+    padding-bottom: 15px;
+    position: relative; /* For the underline effect */
+    margin-bottom: 40px;
+}
+/* Simple underline for section titles */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px; /* Short underline */
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto 0; /* Center it */
+    border-radius: 2px;
+}
+
+h3 { font-size: 1.8em; }
+p { margin-bottom: 15px; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--light-text);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 15px;
+    margin-bottom: 10px; /* For mobile stacking */
+}
+
+.button:hover {
+    background-color: #2980b9; /* Slightly darker primary */
+    transform: translateY(-2px); /* Subtle lift */
+    text-decoration: none;
+}
+
+.button.secondary-button {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.button.secondary-button:hover {
+    background: var(--primary-color);
+    color: var(--light-text);
+}
+
+.button-small { /* For portfolio project links */
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--light-text);
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+.button-small:hover {
+    background-color: #2980b9;
+    text-decoration: none;
+}
+
+
+/* ===== Header & Navigation ===== */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    background: var(--dark-bg);
+    color: var(--light-text);
+    padding: 1.2rem 0; /* Slightly less padding */
+    box-shadow: var(--shadow-light);
+    position: sticky; /* Sticky header like Wix */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
 }
 
-header h1 {
-    margin: 0;
+.header-content {
+    display: flex; /* Arrange title and nav side-by-side */
+    justify-content: space-between; /* Space them out */
+    align-items: center; /* Vertically align */
+}
+
+.site-title {
+    color: var(--light-text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.site-title:hover {
+    color: var(--primary-color);
 }
 
 nav ul {
+    margin: 0;
     padding: 0;
     list-style: none;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    display: inline-block; /* Horizontal nav items */
+    margin-left: 30px; /* Space between nav items */
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
+    color: var(--light-text);
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
 }
 
-main {
-    padding: 20px;
-    max-width: 960px;
-    margin: auto;
+nav a:hover {
+    color: var(--primary-color);
+    text-decoration: none; /* No underline on hover for nav */
 }
 
-section {
-    background: #fff;
+/* ===== Hero Section ===== */
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800/2c3e50/ffffff?text=Your+Hero+Image+Here') no-repeat center center/cover;
+    /* Replace with a professional background image, or a solid color/gradient */
+    /* You can create a placeholder like this: url('images/hero-bg.jpg') */
+    color: var(--light-text);
+    text-align: center;
+    padding: 100px 20px; /* More vertical padding */
+    min-height: 60vh; /* Minimum height for visual impact */
+    display: flex; /* Use flexbox to center content */
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#hero h1 {
+    font-size: 4em; /* Even larger heading */
     margin-bottom: 20px;
+    line-height: 1.1;
+    color: var(--light-text); /* Ensure heading is white */
+}
+
+#hero .tagline {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* ===== Section Defaults ===== */
+section {
+    padding: 60px 0; /* Consistent vertical padding for all sections */
+    margin-bottom: 0; /* Remove default margin from previous setup */
+    background: var(--light-bg); /* Default background */
+}
+/* Alternate section background for visual separation */
+section:nth-of-type(even) { /* Applies to 2nd, 4th, 6th sections etc. */
+    background: #f0f0f0; /* Slightly darker alternate background */
+}
+
+
+/* ===== About Section Specifics (Refining existing) ===== */
+#about .container {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    align-items: center;
+    text-align: center;
+    gap: 30px; /* Space between image and text */
+}
+
+#about h2 { /* Ensure h2 style above applies */ }
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--primary-color); /* Thicker, matching border */
+    box-shadow: var(--shadow-light);
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+}
+
+.bio-text {
+    max-width: 700px;
+    text-align: left; /* Align text left within its box */
+}
+
+/* Adjust About layout for larger screens */
+@media (min-width: 768px) {
+    #about .container {
+        flex-direction: row; /* Side-by-side */
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .profile-pic {
+        margin-right: 40px; /* More space to the right */
+        margin-bottom: 0;
+    }
+}
+
+
+/* ===== Skills Section ===== */
+#skills {
+    /* background: var(--light-bg); */ /* Handled by section:nth-of-type(even) or default */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between skill items */
+    margin-top: 30px;
+}
+
+.skill-item {
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    font-weight: 600;
+    color: var(--dark-bg);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 3px solid var(--primary-color); /* Bottom border for accent */
 }
 
-h2 {
-    color: #333;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 0;
+.skill-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===== Experience Section ===== */
+#experience {
+    /* background: var(--light-bg); */ /* Handled by section:nth-of-type(even) or default */
+}
+
+.experience-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 25px; /* Space between experience blocks */
+    border-left: 5px solid var(--secondary-color); /* Green accent bar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.experience-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.6em;
+}
+
+.experience-item .experience-details {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.experience-item ul {
+    list-style: disc; /* Use discs for bullet points */
+    padding-left: 25px; /* Indent bullet points */
+    margin-top: 10px;
+}
+
+.experience-item ul li {
+    margin-bottom: 8px;
+}
+
+/* ===== Portfolio Section (Refining existing) ===== */
+#portfolio h2 { /* Ensure h2 style above applies */ }
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for projects */
+    gap: 30px; /* Space between projects */
 }
 
 .portfolio-item {
-    margin-bottom: 15px;
-    border-left: 5px solid #007bff;
-    padding-left: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium); /* Stronger shadow */
+    overflow: hidden; /* Hide overflow for image borders */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Center text within item */
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: #fff;
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area without stretching */
+    display: block;
+}
+
+.portfolio-item h3 {
+    color: var(--dark-bg);
     margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.portfolio-item p {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.portfolio-item .button-small {
+    margin-bottom: 20px;
+}
+
+
+/* ===== Contact Section (Refining existing) ===== */
+#contact .contact-details {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#contact .contact-details p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+#contact .contact-details p i {
+    color: var(--primary-color); /* Icon color */
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+#contact ul { /* Remove default list styling */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* ===== Footer ===== */
+footer {
+    background: var(--dark-bg);
+    color: var(--light-text);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 60px; /* More space above footer */
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+}
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* ===== Basic Responsive Adjustments (can be expanded later) ===== */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2em; }
+    .hero-content { padding: 0 20px; }
+
+    .header-content {
+        flex-direction: column; /* Stack logo and nav on small screens */
+        text-align: center;
+    }
+    nav ul li {
+        margin: 0 10px; /* Less space between nav items */
+        font-size: 1em;
+    }
+    .site-title { margin-bottom: 15px; }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr; /* Stack skills on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h1 { font-size: 2.5em; }
+    #hero .tagline { font-size: 1.2em; }
+    .button {
+        display: block; /* Stack buttons */
+        margin: 10px auto;
+    }
+    section { padding: 40px 0; }
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Stack portfolio items */
+    }
 }
