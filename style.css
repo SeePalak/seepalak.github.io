@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* New Font */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap'); /* New Font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
 
 :root {
@@ -172,45 +172,142 @@ nav a:hover {
     text-decoration: none; /* No underline on hover for nav */
 }
 
-/* ===== Hero Section ===== */
+/* NEW Hero Section Styling - based on Rachel Smith template */
 #hero {
-    background: none; /* Remove background image and gradient */
-    background-color: #1F2833; /* Set new solid background color */
-    color: var(--light-text); /* Keep light text for contrast */
-    text-align: center; /* This will be overridden by flexbox for horizontal alignment */
-    padding: 100px 20px;
-    min-height: 60vh;
+    background: url('https://via.placeholder.com/1920x800/0B0C10/66FCF1?text=Your+Background+Image') no-repeat center center/cover;
+    /* You can replace the placeholder URL above with a high-quality background image.
+       For example: url('images/your-hero-background.jpg') */
+    background-color: var(--dark-bg); /* Fallback color */
+    padding: 80px 20px; /* Adjust padding to vertically center the card */
+    min-height: 85vh; /* Make hero section taller for visual impact */
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    position: relative; /* Needed for the pseudo-element overlay */
+    overflow: hidden; /* Prevent background image from spilling */
+}
+
+/* Optional overlay to darken background image slightly for text readability */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1; /* Place overlay above background image */
+}
+
+#hero .container {
+    position: relative;
+    z-index: 2; /* Bring the hero card above the overlay */
     display: flex;
+    justify-content: center; /* Center the hero card horizontally */
+    width: 100%; /* Ensure container takes full width */
+}
+
+.hero-card {
+    background: #fff; /* White background for the central card */
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: var(--shadow-medium); /* Add a prominent shadow */
+    display: grid; /* Use CSS Grid for internal layout of image and details */
+    grid-template-columns: 250px 1fr; /* Fixed width for image, rest for details */
+    grid-template-rows: auto auto; /* Two rows: one for content, one for social links */
+    gap: 30px 40px; /* Gap between grid items */
+    max-width: 950px; /* Max width for the card itself */
+    width: 100%; /* Ensure card takes full available width up to max */
+    align-items: start; /* Align items to the start of their grid areas */
+}
+
+.hero-card-left {
+    grid-column: 1 / 2; /* First column */
+    grid-row: 1 / 3; /* Spans both rows (content and social links) */
+    text-align: center; /* Center content within this div */
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
-..hero-content {
-    max-width: 900px; /* Make it a bit wider to accommodate image and text */
-    margin: 0 auto;
-    display: flex; /* Make it a flex container */
-    flex-direction: row; /* Arrange items in a row */
-    align-items: center; /* Vertically center items */
-    justify-content: center; /* Horizontally center the combined image+text block */
-    gap: 50px; /* Space between the image and the text block */
-    text-align: left; /* Ensure text inside aligns left */
+.hero-card-left img {
+    width: 200px; /* Size of the profile image */
+    height: 200px;
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    border-radius: 4px; /* Square/slightly rounded corners for the image */
+    border: 3px solid var(--primary-color); /* Small border around image */
+    box-shadow: var(--shadow-light); /* Subtle shadow for the image */
+    margin-bottom: 0; /* No margin here, social links are below in same column */
+    filter: grayscale(80%); /* Optional: Make image mostly grayscale like template */
+    transition: filter 0.3s ease;
+}
+.hero-card-left img:hover {
+    filter: grayscale(0%); /* Optional: Colorize on hover */
 }
 
-#hero h1 {
-    font-size: 3.5em; /* Was 4em, adjusted slightly */
-    margin-bottom: 20px;
-    line-height: 1.1;
-    color: #66FCF1; /* New color: Bright Cyan */
-    font-family: 'Playfair Display', serif;
+.hero-card-right {
+    grid-column: 2 / 3; /* Second column */
+    grid-row: 1 / 2; /* First row */
+    text-align: left; /* Align text within this column */
+    padding-top: 5px; /* Adjust vertical alignment if needed */
 }
 
-#hero .tagline {
-    font-size: 1.5em;
-    margin-bottom: 40px;
+.hero-card-right h2 {
+    font-family: 'Montserrat', sans-serif; /* Using Montserrat for name */
+    font-size: 2.5em;
+    color: var(--dark-bg); /* Dark text color on white card */
+    margin-bottom: 5px;
     font-weight: 700;
-    opacity: 0.9;
-    font-family: 'Dancing Script', cursive; /* ADD THIS LINE */
-    color: #45A29E; 
+    line-height: 1.1;
+}
+
+.hero-card-right h3 {
+    font-family: 'Open Sans', sans-serif; /* Using Open Sans for title */
+    font-size: 1.2em;
+    color: var(--primary-color); /* Primary color for title */
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-card-right p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    display: flex; /* For aligning icon and text */
+    align-items: center;
+}
+
+.hero-card-right p i {
+    margin-right: 12px; /* Space between icon and text */
+    color: var(--primary-color); /* Icon color */
+    font-size: 1.1em;
+    width: 20px; /* Ensure consistent alignment */
+    text-align: center;
+}
+
+.hero-social-links {
+    grid-column: 1 / 3; /* Spans both columns */
+    grid-row: 2 / 3; /* Second row */
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color); /* Divider line */
+    text-align: center; /* Center the social icons */
+    margin-top: 10px; /* Space from content above */
+}
+
+.hero-social-links a {
+    font-size: 1.8em;
+    margin: 0 18px;
+    color: var(--text-color); /* Default color for icons */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.hero-social-links a:hover {
+    color: var(--primary-color); /* Primary color on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
 }
 
 /* ===== Section Defaults ===== */
@@ -244,37 +341,6 @@ section:nth-of-type(even) { /* Applies to 2nd, 4th, 6th sections etc. */
     border: 8px solid var(--primary-color); /* Thicker, matching border */
     box-shadow: var(--shadow-light);
     flex-shrink: 0; /* Prevent shrinking on smaller screens */
-}
-/* ... other CSS rules like section, skills, experience, portfolio, contact, footer ... */
-
-/* ===== Basic Responsive Adjustments (can be expanded later) ===== */
-@media (max-width: 768px) {
-    /* ... existing rules ... */
-
-    .hero-content {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
-    }
-
-    /* ONLY the SIZE adjustment for mobile goes here now */
-    .hero-profile-pic {
-        width: 180px; /* Smaller size for mobile screens */
-        height: 180px;
-        /* Remove other properties from here, they are now in the default rule above */
-    }
-
-    #hero h1 {
-        font-size: 2.5em;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    /* ... existing rules ... */
 }
 .bio-text {
     max-width: 700px;
@@ -454,20 +520,55 @@ footer p {
 
 /* ===== Basic Responsive Adjustments (can be expanded later) ===== */
 @media (max-width: 768px) {
-    /* ... existing rules ... */
-
-    .hero-content {
-        flex-direction: column; /* Stack image and text vertically */
-        gap: 30px; /* Adjust gap for vertical stacking */
-        text-align: center; /* Center text when stacked */
+    /* Responsive adjustments for the new hero card layout */
+    #hero {
+        padding: 50px 20px;
+        min-height: auto; /* Allow height to adjust to content */
+    }
+    .hero-card {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        grid-template-rows: auto auto auto; /* Image, then details, then social */
+        text-align: center; /* Center everything within the card */
+        gap: 20px; /* Adjust gap for vertical stacking */
+        padding: 25px;
+        max-width: 500px; /* Make card narrower on mobile */
     }
 
-    
-
-    #hero h1 {
-        font-size: 2.5em; /* Further reduce heading size for mobile */
+    .hero-card-left {
+        grid-column: 1 / 2; /* Full width column */
+        grid-row: 1 / 2; /* First row */
     }
-}
+    .hero-card-left img {
+        width: 150px; /* Smaller image on mobile */
+        height: 150px;
+    }
+
+    .hero-card-right {
+        grid-column: 1 / 2; /* Full width column */
+        grid-row: 2 / 3; /* Second row */
+        text-align: center; /* Center text details on mobile */
+    }
+    .hero-card-right p i {
+        margin-right: 10px; /* Adjust icon spacing */
+        justify-content: center; /* Center icon within text line */
+    }
+    .hero-card-right p {
+        justify-content: center; /* Center the icon and text line as a block */
+    }
+
+    .hero-card-right h2 {
+        font-size: 2em; /* Smaller heading on mobile */
+    }
+    .hero-card-right h3 {
+        font-size: 1.1em; /* Smaller title on mobile */
+    }
+
+    .hero-social-links {
+        grid-column: 1 / 2; /* Full width column */
+        grid-row: 3 / 4; /* Third row */
+        padding-top: 20px;
+        margin-top: 0; /* Remove extra margin if already padded */
+    }
 
     .skills-grid {
         grid-template-columns: 1fr; /* Stack skills on mobile */
@@ -475,8 +576,25 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    #hero h1 { font-size: 2.5em; }
-    #hero .tagline { font-size: 1.2em; }
+    .hero-card-left img {
+        width: 120px;
+        height: 120px;
+    }
+    .hero-card-right h2 {
+        font-size: 1.8em;
+    }
+    .hero-card-right h3 {
+        font-size: 1em;
+    }
+    .hero-social-links a {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+
+    /* General mobile adjustments */
+    h1 { font-size: 2.5em; } /* Further adjust global h1 for very small screens */
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.5em; }
     .button {
         display: block; /* Stack buttons */
         margin: 10px auto;
