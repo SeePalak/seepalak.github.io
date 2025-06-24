@@ -183,16 +183,22 @@ nav a:hover {
     justify-content: center;
 }
 
-.hero-content {
-    max-width: 800px;
+..hero-content {
+    max-width: 900px; /* Make it a bit wider to accommodate image and text */
     margin: 0 auto;
+    display: flex; /* Make it a flex container */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center the combined image+text block */
+    gap: 50px; /* Space between the image and the text block */
+    text-align: left; /* Ensure text inside aligns left */
 }
 
 #hero h1 {
-    font-size: 4em; /* Even larger heading */
+    font-size: 3.5em; /* Was 4em, adjusted slightly */
     margin-bottom: 20px;
     line-height: 1.1;
-    color: var(--light-text); /* Ensure heading is white */
+    color: var(--light-text);
 }
 
 #hero .tagline {
@@ -230,11 +236,41 @@ section:nth-of-type(even) { /* Applies to 2nd, 4th, 6th sections etc. */
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 6px solid var(--primary-color); /* Thicker, matching border */
+    border: 8px solid var(--primary-color); /* Thicker, matching border */
     box-shadow: var(--shadow-light);
     flex-shrink: 0; /* Prevent shrinking on smaller screens */
 }
+/* ... other CSS rules like section, skills, experience, portfolio, contact, footer ... */
 
+/* ===== Basic Responsive Adjustments (can be expanded later) ===== */
+@media (max-width: 768px) {
+    /* ... existing rules ... */
+
+    .hero-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* ONLY the SIZE adjustment for mobile goes here now */
+    .hero-profile-pic {
+        width: 180px; /* Smaller size for mobile screens */
+        height: 180px;
+        /* Remove other properties from here, they are now in the default rule above */
+    }
+
+    #hero h1 {
+        font-size: 2.5em;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    /* ... existing rules ... */
+}
 .bio-text {
     max-width: 700px;
     text-align: left; /* Align text left within its box */
@@ -413,24 +449,20 @@ footer p {
 
 /* ===== Basic Responsive Adjustments (can be expanded later) ===== */
 @media (max-width: 768px) {
-    h1 { font-size: 2.8em; }
-    h2 { font-size: 2em; }
-    .hero-content { padding: 0 20px; }
+    /* ... existing rules ... */
 
-    .header-content {
-        flex-direction: column; /* Stack logo and nav on small screens */
-        text-align: center;
+    .hero-content {
+        flex-direction: column; /* Stack image and text vertically */
+        gap: 30px; /* Adjust gap for vertical stacking */
+        text-align: center; /* Center text when stacked */
     }
-    nav ul li {
-        margin: 0 10px; /* Less space between nav items */
-        font-size: 1em;
-    }
-    .site-title { margin-bottom: 15px; }
 
-    .profile-pic {
-        width: 150px;
-        height: 150px;
+    
+
+    #hero h1 {
+        font-size: 2.5em; /* Further reduce heading size for mobile */
     }
+}
 
     .skills-grid {
         grid-template-columns: 1fr; /* Stack skills on mobile */
