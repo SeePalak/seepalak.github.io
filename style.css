@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* New Font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap'); /* New Font */
+
 
 :root {
     /* Define a color palette for consistency */
-    --primary-color: #3498db; /* A vibrant blue */
-    --secondary-color: #2ecc71; /* A green for accents */
-    --dark-bg: #2c3e50; /* Dark background for header/footer */
-    --light-bg: #f8f8f8; /* Light background for sections */
-    --text-color: #333; /* Dark text */
-    --light-text: #fff; /* Light text for dark backgrounds */
-    --border-color: #e0e0e0; /* Light border/divider color */
+    --primary-color: #66FCF1; /* Your bright cyan for main accents */
+    --secondary-color: #45A29E; /* Your darker teal for secondary accents/hovers */
+    --dark-bg: #0B0C10; /* Your darkest color for header, footer, hero overlay */
+    --light-bg: #C5C6C7; /* Your light grey for main content sections */
+    --text-color: #1F2833; /* Your dark grey/blue for main text */
+    --light-text: #ffffff; /* Keeping pure white for text on dark backgrounds */
+    --border-color: #C5C6C7; /* Using your light grey for borders */
     --shadow-light: 0 4px 10px rgba(0,0,0,0.08); /* Subtle shadow */
     --shadow-medium: 0 8px 20px rgba(0,0,0,0.15); /* More prominent shadow */
 }
@@ -199,13 +202,15 @@ nav a:hover {
     margin-bottom: 20px;
     line-height: 1.1;
     color: var(--light-text);
+    font-family: 'Playfair Display', serif; /* ADD THIS LINE */
 }
 
 #hero .tagline {
     font-size: 1.5em;
     margin-bottom: 40px;
-    font-weight: 400;
+    font-weight: 700;
     opacity: 0.9;
+    font-family: 'Dancing Script', cursive; /* ADD THIS LINE */
 }
 
 /* ===== Section Defaults ===== */
