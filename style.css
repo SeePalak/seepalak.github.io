@@ -59,7 +59,15 @@ h2::after {
     margin: 10px auto 0; /* Center it */
     border-radius: 2px;
 }
-
+.hero-card-right h3::after {
+    content: '';
+    display: block;
+    width: 50px; /* Adjust width as needed */
+    height: 3px; /* Adjust thickness */
+    background: var(--primary-color);
+    margin: 8px auto 0; /* Space below title and center it */
+    border-radius: 2px;
+}
 h3 { font-size: 1.8em; }
 p { margin-bottom: 15px; }
 
@@ -232,8 +240,8 @@ nav a:hover {
 }
 
 .hero-card-left img {
-    width: 200px; /* Size of the profile image */
-    height: 200px;
+    width: 250px; /* Size of the profile image */
+    height: 300px;
     object-fit: cover; /* Ensure image covers the area without distortion */
     border-radius: 4px; /* Square/slightly rounded corners for the image */
     border: 3px solid var(--primary-color); /* Small border around image */
@@ -253,7 +261,7 @@ nav a:hover {
     font-family: 'Montserrat', sans-serif; /* Using Montserrat for name */
     font-size: 2.5em;
     color: var(--dark-bg); /* Dark text color on white card */
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-weight: 700;
     line-height: 1.1;
 }
@@ -262,7 +270,7 @@ nav a:hover {
     font-family: 'Open Sans', sans-serif; /* Using Open Sans for title */
     font-size: 1.2em;
     color: #000; /* Changed to Black */
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
