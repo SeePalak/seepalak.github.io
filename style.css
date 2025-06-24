@@ -229,7 +229,6 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
 }
 
 .hero-card-left img {
@@ -240,11 +239,7 @@ nav a:hover {
     border: 3px solid var(--primary-color); /* Small border around image */
     box-shadow: var(--shadow-light); /* Subtle shadow for the image */
     margin-bottom: 0; /* No margin here, social links are below in same column */
-    filter: grayscale(80%); /* Optional: Make image mostly grayscale like template */
     transition: filter 0.3s ease;
-}
-.hero-card-left img:hover {
-    filter: grayscale(0%); /* Optional: Colorize on hover */
 }
 
 .hero-card-right {
@@ -266,11 +261,12 @@ nav a:hover {
 .hero-card-right h3 {
     font-family: 'Open Sans', sans-serif; /* Using Open Sans for title */
     font-size: 1.2em;
-    color: var(--primary-color); /* Primary color for title */
+    color: #000; /* Changed to Black */
     margin-bottom: 25px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center; /* Centered */
 }
 
 .hero-card-right p {
