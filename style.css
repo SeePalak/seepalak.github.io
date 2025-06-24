@@ -174,14 +174,13 @@ nav a:hover {
 
 /* ===== Hero Section ===== */
 #hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800/2c3e50/ffffff?text=Your+Hero+Image+Here') no-repeat center center/cover;
-    /* Replace with a professional background image, or a solid color/gradient */
-    /* You can create a placeholder like this: url('images/hero-bg.jpg') */
-    color: var(--light-text);
-    text-align: center;
-    padding: 100px 20px; /* More vertical padding */
-    min-height: 60vh; /* Minimum height for visual impact */
-    display: flex; /* Use flexbox to center content */
+    background: none; /* Remove background image and gradient */
+    background-color: #1F2833; /* Set new solid background color */
+    color: var(--light-text); /* Keep light text for contrast */
+    text-align: center; /* This will be overridden by flexbox for horizontal alignment */
+    padding: 100px 20px;
+    min-height: 60vh;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -201,8 +200,8 @@ nav a:hover {
     font-size: 3.5em; /* Was 4em, adjusted slightly */
     margin-bottom: 20px;
     line-height: 1.1;
-    color: var(--light-text);
-    font-family: 'Playfair Display', serif; /* ADD THIS LINE */
+    color: #66FCF1; /* New color: Bright Cyan */
+    font-family: 'Playfair Display', serif;
 }
 
 #hero .tagline {
@@ -211,6 +210,7 @@ nav a:hover {
     font-weight: 700;
     opacity: 0.9;
     font-family: 'Dancing Script', cursive; /* ADD THIS LINE */
+    color: #45A29E; 
 }
 
 /* ===== Section Defaults ===== */
