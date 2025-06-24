@@ -59,15 +59,7 @@ h2::after {
     margin: 10px auto 0; /* Center it */
     border-radius: 2px;
 }
-.hero-card-right h3::after {
-    content: '';
-    display: block;
-    width: 50px; /* Adjust width as needed */
-    height: 3px; /* Adjust thickness */
-    background: var(--primary-color);
-    margin: 8px auto 0; /* Space below title and center it */
-    border-radius: 2px;
-}
+
 h3 { font-size: 1.8em; }
 p { margin-bottom: 15px; }
 
@@ -222,10 +214,10 @@ nav a:hover {
     border-radius: 8px; /* Slightly rounded corners */
     box-shadow: var(--shadow-medium); /* Add a prominent shadow */
     display: grid; /* Use CSS Grid for internal layout of image and details */
-    grid-template-columns: 250px 1fr; /* Fixed width for image, rest for details */
+    grid-template-columns: 280px 1fr; /* Image width adjusted */
     grid-template-rows: auto auto; /* Two rows: one for content, one for social links */
     gap: 30px 40px; /* Gap between grid items */
-    max-width: 950px; /* Max width for the card itself */
+    max-width: 1050px; /* Increased size */
     width: 100%; /* Ensure card takes full available width up to max */
     align-items: start; /* Align items to the start of their grid areas */
 }
@@ -240,8 +232,8 @@ nav a:hover {
 }
 
 .hero-card-left img {
-    width: 250px; /* Size of the profile image */
-    height: 300px;
+    width: 280px; /* Further Increased size */
+    height: 280px; /* Further Increased size */
     object-fit: cover; /* Ensure image covers the area without distortion */
     border-radius: 4px; /* Square/slightly rounded corners for the image */
     border: 3px solid var(--primary-color); /* Small border around image */
@@ -259,26 +251,26 @@ nav a:hover {
 
 .hero-card-right h2 {
     font-family: 'Montserrat', sans-serif; /* Using Montserrat for name */
-    font-size: 2.5em;
+    font-size: 3em; /* Increased font size */
     color: var(--dark-bg); /* Dark text color on white card */
-    margin-bottom: 0px;
+    margin-bottom: 0px; /* Reduced space */
     font-weight: 700;
     line-height: 1.1;
 }
 
 .hero-card-right h3 {
     font-family: 'Open Sans', sans-serif; /* Using Open Sans for title */
-    font-size: 1.2em;
-    color: #000; /* Changed to Black */
-    margin-bottom: 15px;
+    font-size: 1.5em; /* Increased font size */
+    color: #000;
+    margin-bottom: 25px; /* Reverted to give space */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-align: center; /* Centered */
+    text-align: center;
 }
 
 .hero-card-right p {
-    font-size: 1em;
+    font-size: 1.1em; /* Increased font size */
     margin-bottom: 10px;
     color: var(--text-color);
     display: flex; /* For aligning icon and text */
@@ -303,7 +295,7 @@ nav a:hover {
 }
 
 .hero-social-links a {
-    font-size: 1.8em;
+    font-size: 2em; /* Increased font size */
     margin: 0 18px;
     color: var(--text-color); /* Default color for icons */
     transition: color 0.3s ease, transform 0.2s ease;
